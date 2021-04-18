@@ -4,7 +4,7 @@ module.exports = {
   googleClientId:
     "244172137223-5potranlv1rhrhua994h3nbt9l2i2f6h.apps.googleusercontent.com",
   googleClientSecret: "v4n3H8EeYf7ce8Kek7pBocai",
-  dbConnectionString: "mongodb://localhost:27017/kobomail",
+  dbConnectionString: "mongodb://localhost:27017/ticketier",
   cookieKey:
     "gfsfteyufkfklposwouwrferdfgdjukflklkeooweuterftdghwuiwlokdkmxmxnnbdcveed",
   prodDbLink:

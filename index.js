@@ -1,3 +1,4 @@
+const keys = require("./src/config/keys");
 const express = require("express");
 const app = express();
 const helmet = require("helmet");
@@ -5,6 +6,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const rateLimit = require("express-rate-limit");
 const morgan = require("morgan");
+const dbConnection = require("./src/config/dbConnection");
 
 //api security
 app.use(helmet());
@@ -18,6 +20,9 @@ app.use("/", apiLimiter);
 
 //cors
 app.use(cors());
+
+//database connection string
+dbConnection();
 
 //log request
 app.use(morgan("tiny"));
