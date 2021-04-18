@@ -36,7 +36,7 @@ app.use(bodyParser.json());
  ##### 
  */
 // user routes: authentication, login, register, forget-password
-app.use("/api/v1/user", require("./src/routers/userRouter"));
+app.use("/api/v1/users", require("./src/routers/userRouter"));
 //ticket routes
 app.use("/api/v1/tickets", require("./src/routers/ticketRouter"));
 

@@ -30,6 +30,11 @@ const userSchema = new Schema({
     required: true,
     maxlength: 50,
   },
+
+  userip: {
+    type: String,
+    maxlength: 50,
+  },
 });
 
 module.exports = model("User", userSchema);
