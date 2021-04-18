@@ -1,5 +1,5 @@
 const User = require("../models/userModel");
-
+const bcrypt = require("bcrypt");
 const addUser = async (req, res) => {
   //TODO: validate request using express validator
   //get inputs from request
@@ -20,10 +20,9 @@ const addUser = async (req, res) => {
     //user does not exist so create one
     user = new User({ name, company, address, phone, email, password, userip });
     //TODO: install bcrypt  and salt the password
-    /*
-            const salt = await bcrypt.genSalt(10);
-            user.password = await bcrypt.hash(password, salt);
-      */
+
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(password, salt);
     await user.save();
     return res.status(200).json({
       status: "success",
@@ -32,7 +31,7 @@ const addUser = async (req, res) => {
   } catch (error) {
     return res.status(400).json({
       status: "error",
-      data: errors,
+      data: error.message,
     });
   }
 };

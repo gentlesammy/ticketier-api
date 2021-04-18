@@ -28,7 +28,7 @@ const userSchema = new Schema({
     type: String,
     minlength: 8,
     required: true,
-    maxlength: 50,
+    maxlength: 200,
   },
 
   userip: {
