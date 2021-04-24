@@ -81,7 +81,27 @@ const loginUser = async (req, res) => {
   }
 };
 
+const storeUserRefreshToken = async (_id, token) => {
+  try {
+    const data = await User.findOneAnd(
+      { _id },
+      {
+        $set: {
+          "refreshJWT.token": token,
+          "refreshJWT.addedAt": Date.now(),
+        },
+      },
+      { new: true }
+    );
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   addUser,
   loginUser,
+  storeUserRefreshToken,
 };
