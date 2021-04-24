@@ -1,11 +1,14 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const requestIp = require("request-ip");
 const addUser = async (req, res) => {
   //TODO: validate request using express validator
   //get inputs from request
+  const clientIp = requestIp.getClientIp(req);
+  req.body.userip = clientIp;
   const { name, company, address, phone, email, password, userip } = req.body;
   try {
-    //check if user exist previously
+    //check if user exist previously 3143958829
     let user = await User.findOne({
       email,
     });
@@ -35,7 +38,50 @@ const addUser = async (req, res) => {
     });
   }
 };
+const { createAccessToken, createRefreshToken } = require("../utils/jwt");
+const loginUser = async (req, res) => {
+  //TODO: check for validation error using express validator
+
+  try {
+    //check if email exist
+    const correctUser = await User.findOne({ email: req.body.email });
+    if (correctUser === null) {
+      return res.status(400).send({
+        status: "error",
+        data: { message: "Invalid login credentials" },
+      });
+    }
+
+    const { email, password } = correctUser;
+    let isMatch = await bcrypt.compareSync(req.body.password, password);
+    if (!isMatch) {
+      return res.status(400).send({
+        status: "error",
+        data: { message: "Invalid login credentials" },
+      });
+    }
+    //login credientials are correct, generate access token and refresh token
+    const payload = {
+      email: correctUser.email,
+      id: correctUser._id,
+    };
+
+    const accessToken = await createAccessToken(payload);
+    const refreshToken = await createRefreshToken(payload);
+
+    res.json({
+      status: "success",
+      data: { correctUser, accessToken, refreshToken },
+    });
+  } catch (error) {
+    res.status(400).send({
+      status: "error",
+      data: { message: error.message },
+    });
+  }
+};
 
 module.exports = {
   addUser,
+  loginUser,
 };

@@ -1,8 +1,11 @@
 //not to be deployed
 
 module.exports = {
-  googleClientId:
-    "244172137223-5potranlv1rhrhua994h3nbt9l2i2f6h.apps.googleusercontent.com",
+  redisConUrl: "redis://localhost:6379",
+  jwtRefreshTokenSecretKey:
+    "32772uyhdfjik0--2[']';[A[][A]PWW009992JJAJKVXZZxscghuew[]e-00r==w9eu.;v,mv n/,.;",
+  jwtAccessTokenSecretKey:
+    "32772uyhdfjik0--2[']';[A[][A]PWW00ywttetet9992JJAJKVXZZxscghuew[]e-00r==w9eu.;v,mv n/,.;",
   googleClientSecret: "v4n3H8EeYf7ce8Kek7pBocai",
   dbConnectionString: "mongodb://localhost:27017/ticketier",
   cookieKey:

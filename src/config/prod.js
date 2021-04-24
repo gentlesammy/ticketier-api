@@ -1,5 +1,7 @@
 module.exports = {
-  googleClientId: process.env.GOOGLE_CLIENT_ID,
+  redisConUrl: process.env.REDIS_CON_URL,
+  jwtRefreshTokenSecretKey: process.env.JWT_REFRESH_TOKEN_SECRET_KEY,
+  jwtAccessTokenSecretKey: process.env.JWT_ACCESS_TOKEN_SECRET_KEY,
   googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
   dbConnectionString: process.env.DB_CONNECTION_STRING,
   cookieKey: process.env.COOKIE_STRING,
