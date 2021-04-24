@@ -35,6 +35,18 @@ const userSchema = new Schema({
     type: String,
     maxlength: 50,
   },
+  refreshJWT: {
+    token: {
+      type: String,
+      maxlength: 500,
+      default: "",
+    },
+    addedAt: {
+      type: Date,
+      required: true,
+      default: Date.now(),
+    },
+  },
 });
 
 module.exports = model("User", userSchema);
