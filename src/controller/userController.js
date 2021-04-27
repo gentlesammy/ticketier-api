@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const requestIp = require("request-ip");
@@ -81,9 +82,10 @@ const loginUser = async (req, res) => {
   }
 };
 
-const storeUserRefreshToken = async (_id, token) => {
+const storeUserRefreshToken = async (id, token) => {
+  let _id = id;
   try {
-    const data = await User.findOneAnd(
+    const data = await User.findOneAndUpdate(
       { _id },
       {
         $set: {
@@ -93,15 +95,27 @@ const storeUserRefreshToken = async (_id, token) => {
       },
       { new: true }
     );
-
-    return data;
   } catch (error) {
     console.log(error);
   }
+};
+
+const getUser = async (req, res) => {
+  //extract user id str.replace(/"/g,""
+  const _id = mongoose.Types.ObjectId(req.userId.replace(/"/g, ""));
+  // extract user profile based on user_id
+  const userProfile = await User.findById({ _id });
+  res.status(200).json({ status: "success", data: userProfile });
+};
+
+const whatever = async (req, res) => {
+  res.status(200).json({ status: "success", message: "hello" });
 };
 
 module.exports = {
   addUser,
   loginUser,
   storeUserRefreshToken,
+  getUser,
+  whatever,
 };
