@@ -9,7 +9,7 @@ const User = require("../models/userModel");
 //create access token
 const createAccessToken = async ({ email, id }) => {
   const accessToken = await jwt.sign({ email, id }, jwtAccessTokenSecretKey, {
-    expiresIn: "15m",
+    expiresIn: "60m",
   });
   await setJWT(accessToken, JSON.stringify(id));
   return accessToken;

@@ -39,6 +39,8 @@ app.use(bodyParser.json());
 app.use("/api/v1/users", require("./src/routers/userRouter"));
 //ticket routes
 app.use("/api/v1/tickets", require("./src/routers/ticketRouter"));
+//token routes
+app.use("/api/v1/tokens", require("./src/routers/tokenRouter"));
 
 const errorHandler = require("./src/utils/errorHandler");
 // app.use()

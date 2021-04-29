@@ -1,5 +1,5 @@
 const { verifyAccessToken } = require("../utils/jwt");
-const { getJWT } = require("../utils/redis");
+const { getJWT, deleteJWT } = require("../utils/redis");
 
 const userAuthorization = async (req, res, next) => {
   try {
@@ -7,6 +7,7 @@ const userAuthorization = async (req, res, next) => {
     //check if jwt exist
     const decoded = await verifyAccessToken(authorization);
     if (decoded == undefined) {
+      deleteJWT(authorization);
       return res
         .status(403)
         .json({ status: "error", message: "forbidden now" });

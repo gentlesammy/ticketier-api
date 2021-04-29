@@ -2,7 +2,7 @@ const redis = require("redis");
 const { redisConUrl } = require("../config/keys");
 const client = redis.createClient(redisConUrl);
 
-const setJWT = async (key, value) => {
+const setJWT = async(key, value) => {
   try {
     await client.set(key, value, (error, response) => {
       if (error) {
@@ -15,7 +15,7 @@ const setJWT = async (key, value) => {
   }
 };
 
-const getJWT = async (key) => {
+const getJWT = async(key) => {
   return new Promise((resolve, reject) => {
     try {
       client.get(key, (err, res) => {
@@ -28,7 +28,16 @@ const getJWT = async (key) => {
   });
 };
 
+const deleteJWT = async(key) => {
+  try {
+    client.del(key);
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   setJWT,
   getJWT,
+  deleteJWT
 };
