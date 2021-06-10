@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const requestIp = require("request-ip");
+const {deleteJWT} = require("../utils/redis");
 const addUser = async (req, res) => {
   //TODO: validate request using express validator
   //get inputs from request
@@ -122,6 +123,19 @@ const getuserByEmail = async (email) => {
   }
 };
 
+const logOutUser = async(req, res) => {
+  const {authorization} = req.headers;
+  // let id = req.userId;
+  //DELETE jwt in redis
+  deleteJWT(authorization)
+  //delete in database by setting refresh token to null
+   //extract user id str.replace(/"/g,""
+  const id = mongoose.Types.ObjectId(req.userId.replace(/"/g, "").replace(/\\/g, ''));
+  let deleteRefToken = await storeUserRefreshToken(id, "");
+  console.log(deleteRefToken)
+  return res.status(201).json({status: "success", message: authorization});
+}
+
 
 module.exports = {
   addUser,
@@ -129,5 +143,6 @@ module.exports = {
   storeUserRefreshToken,
   getUser,
   whatever,
-  getuserByEmail
+  getuserByEmail,
+  logOutUser
 };

@@ -5,6 +5,7 @@ const {
   loginUser,
   getUser,
   whatever,
+  logOutUser
 } = require("../controller/userController");
 const { userAuthorization } = require("../middleware/authorization");
 const {resetPasswordPost, resetPasswordPatch}  = require("../controller/passwordController");
@@ -15,6 +16,9 @@ router.post("/login", loginUser);
 router.post("/forget_password", resetPasswordPost);
 router.patch("/forget_password", resetPasswordPatch);
 router.get("/user", getUser, userAuthorization);
+//logoutUser Route
+router.delete("/logout", userAuthorization, logOutUser, );
+
 
 //test routes
 router.get("/whatever", whatever);
