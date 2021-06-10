@@ -14,7 +14,7 @@ app.use(helmet());
 //limit rate
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10,
+  max: 30,
 });
 app.use("/", apiLimiter);
 

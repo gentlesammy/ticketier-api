@@ -1,4 +1,6 @@
 module.exports = {
+  gmailClientId: process.env.GMAIL_CLIENT_ID,
+  gmailSecretId: process.env.GMAIL_SECRET_ID,
   redisConUrl: process.env.REDIS_CON_URL,
   jwtRefreshTokenSecretKey: process.env.JWT_REFRESH_TOKEN_SECRET_KEY,
   jwtAccessTokenSecretKey: process.env.JWT_ACCESS_TOKEN_SECRET_KEY,
@@ -7,5 +9,7 @@ module.exports = {
   cookieKey: process.env.COOKIE_STRING,
   stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
   stripeSecretKey: process.env.STRIPE_SECRET_KEY,
+  emailUserName: process.env.EMAIL_USERNAME,
+  emailPassword: process.env.EMAIL_PASSWORD,
 };
 // "mongodb+srv://gentlesammy:KOKO1984billo1989@honestmen.7dcux.mongodb.net/kobomail?retryWrites=true&w=majority",

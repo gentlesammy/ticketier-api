@@ -122,11 +122,12 @@ const getuserByEmail = async (email) => {
   }
 };
 
+
 module.exports = {
   addUser,
   loginUser,
   storeUserRefreshToken,
   getUser,
   whatever,
-  getuserByEmail,
+  getuserByEmail
 };

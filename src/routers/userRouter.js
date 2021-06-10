@@ -7,12 +7,16 @@ const {
   whatever,
 } = require("../controller/userController");
 const { userAuthorization } = require("../middleware/authorization");
-
+const {resetPasswordPost, resetPasswordPatch}  = require("../controller/passwordController");
 //routes for users
 router.post("/adduser", addUser);
 router.post("/login", loginUser);
-router.use(userAuthorization);
+//forget password routes
+router.post("/forget_password", resetPasswordPost);
+router.patch("/forget_password", resetPasswordPatch);
 router.get("/user", getUser, userAuthorization);
+
+//test routes
 router.get("/whatever", whatever);
 router.get("/hello", (req, res) => {
   res.json({ message: "Hello world", from: "api/v1/user/hello" });

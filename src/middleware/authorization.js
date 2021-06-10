@@ -10,7 +10,7 @@ const userAuthorization = async (req, res, next) => {
       deleteJWT(authorization);
       return res
         .status(403)
-        .json({ status: "error", message: "forbidden now" });
+        .json({ status: "error", message: "forbidden now lol" });
     }
     if (decoded.email) {
       const userId = await getJWT(authorization);
