@@ -88,7 +88,7 @@ const resetPasswordPost = async(req, res) => {
         }
         // check if code is still active
         const dbDate = new Date(user.addedAt);
-        const expiresIn = 21;
+        const expiresIn = 1;
         let expDate = dbDate.setDate(dbDate.getDate() + expiresIn);
         const today = new Date();
 
@@ -105,22 +105,21 @@ const resetPasswordPost = async(req, res) => {
         if(uPdatePassword){
           // 4. send email notification
           const deleteUsedPin = await deletePin(pin);
-          console.log(deleteUsedPin)
-          // const emailData = {
-          //   email, 
-          //   subject:`Password Reset Successfully`,
-          //   text : `You Just reset your password successfully via ip ${clientIp}. 
-          //   `,
-          //   html : `
-          //       <h3>Password Reset Successful  </h3>
-          //       <br/>
-          //       <p>
-          //       You Just reset your password successfully via ip ${clientIp}. 
-          //       </p>
-          //   `
-          // }
-          // const result = await emailProcessor(emailData);
-          // console.log("resulktette", result);
+          const emailData = {
+            email, 
+            subject:`Password Reset Successfully`,
+            text : `You Just reset your password successfully via ip ${clientIp}. 
+            `,
+            html : `
+                <h3>Password Reset Successful  </h3>
+                <br/>
+                <p>
+                You Just reset your password successfully via ip ${clientIp}. 
+                </p>
+            `
+          }
+          const result = await emailProcessor(emailData);
+          console.log("resulktette", result);
           return res.status(201).json({status: "success", message: "You have updated your password successfully"});
         } 
       }

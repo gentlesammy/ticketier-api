@@ -39,7 +39,7 @@ Content-Type: application/json
 
 {
     "email" : "sayeminvestement2@gmail.com",
-    "pin": 401707,
+    "pin": 242256,
     "password": "kometh12345"
 }
 
@@ -47,4 +47,4 @@ Content-Type: application/json
 ### logOut User request ****
 DELETE   {{hostName}}/users/logout
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNheWVtaW52ZXN0ZW1lbnQyQGdtYWlsLmNvbSIsImlkIjoiNjA4NGUwZDg4NzkxZGUyYTc4NTMwYmI4IiwiaWF0IjoxNjIzMzE5OTU2LCJleHAiOjE2MjMzMjM1NTZ9.8QtC9GWmdtkBn0f3ZQMT9m5QmxM_qfKRo8Fqd9BkW1k
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNheWVtaW52ZXN0ZW1lbnQyQGdtYWlsLmNvbSIsImlkIjoiNjA4NGUwZDg4NzkxZGUyYTc4NTMwYmI4IiwiaWF0IjoxNjIzMzIzNDgxLCJleHAiOjE2MjMzMjcwODF9.cbtmFo_98lZn3IhQKYFjc2lYIu0RwR75u4jppGBF2Gg

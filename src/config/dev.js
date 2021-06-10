@@ -18,6 +18,6 @@ module.exports = {
     "pk_test_51HQxoCIsw7Rq82YGvKn8eskm3Z34HhzNeKqSw67f4u2tad3IFzwcOcDwN1ve68cAUYKy6oQhwPP4efjuPrVxoTyk00qBbYp8oF",
   stripeSecretKey:
     "sk_test_51HQxoCIsw7Rq82YGLHtR5h1KnjvUCPjWfMW6hSc7KTVWjtIaLjokjTbNXvtlrFYlXbuHYyAk5wxJC0iRgaq6HYav00km4RYgJM",
-  emailUserName: "",
-  emailPassword: "",
+  emailUserName: "amber.block@ethereal.email",
+  emailPassword: "jmE9ETDjhEKXnCwqmn",
 };
