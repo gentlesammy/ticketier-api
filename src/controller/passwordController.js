@@ -6,7 +6,6 @@ const requestIp = require("request-ip");
 const { getuserByEmail } = require("./userController");
 const { emailProcessor } = require("../utils/emailHelper");
 
-
 /*
     FORGET PASSWORD & PASSWORD RESET
 */

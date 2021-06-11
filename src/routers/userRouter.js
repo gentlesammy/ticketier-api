@@ -9,12 +9,13 @@ const {
 } = require("../controller/userController");
 const { userAuthorization } = require("../middleware/authorization");
 const {resetPasswordPost, resetPasswordPatch}  = require("../controller/passwordController");
+const {updatePasswordValidation, registerationValidation, loginValidation, resetPasswordValidation} = require("../middleware/formValidation");
 //routes for users
-router.post("/adduser", addUser);
-router.post("/login", loginUser);
+router.post("/adduser",registerationValidation, addUser);
+router.post("/login", loginValidation, loginUser);
 //forget password routes
-router.post("/forget_password", resetPasswordPost);
-router.patch("/forget_password", resetPasswordPatch);
+router.post("/forget_password", resetPasswordValidation, resetPasswordPost);
+router.patch("/forget_password", updatePasswordValidation, resetPasswordPatch);
 router.get("/user", getUser, userAuthorization);
 //logoutUser Route
 router.delete("/logout", userAuthorization, logOutUser, );

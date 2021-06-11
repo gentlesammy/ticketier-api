@@ -10,7 +10,9 @@ Content-Type: application/json
     "name": "Sule Gambari",
     "email" : "sulegambari@gmail.com",
     "password": "kometh1984",
-    "company" : "GamSule Inc"
+    "company" : "GamSule Inc",
+    "address" : "number 4 gambari street",
+    "phone"   : "2348060913903"
 }
 
 ### login request ****
@@ -39,7 +41,7 @@ Content-Type: application/json
 
 {
     "email" : "sayeminvestement2@gmail.com",
-    "pin": 242256,
+    "pin": 2256,
     "password": "kometh12345"
 }
 
